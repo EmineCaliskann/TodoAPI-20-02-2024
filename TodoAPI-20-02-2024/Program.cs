@@ -1,7 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using TodoAPI_20_02_2024.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddDbContext<TodoContext>(builder => builder.UseInMemoryDatabase("TodoList"));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -32,4 +35,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+//veri tabaný yoksa oluþtur
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<TodoContext>();
+    db.Database.EnsureCreated();
+
+}
 app.Run();
+
+
+
+// Install-Package Microsoft.EntityFrameworkCore
+// Install-Package Microsoft.EntityFrameworkCore.InMemory

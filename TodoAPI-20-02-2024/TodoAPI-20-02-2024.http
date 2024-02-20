@@ -4,3 +4,6 @@ GET {{TodoAPI_20_02_2024_HostAddress}}/api/HavaDurumu/
 Accept: application/json
 
 ###
+
+GET {{TodoAPI_20_02_2024_HostAddress}}/api/TodoItems/
+Accept: application/json
