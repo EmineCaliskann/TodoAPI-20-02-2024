@@ -1,0 +1,6 @@
+@TodoAPI_20_02_2024_HostAddress = http://localhost:5041
+
+GET {{TodoAPI_20_02_2024_HostAddress}}/api/HavaDurumu/
+Accept: application/json
+
+###
