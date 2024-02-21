@@ -7,3 +7,7 @@ Accept: application/json
 
 GET {{TodoAPI_20_02_2024_HostAddress}}/api/TodoItems/
 Accept: application/json
+###
+
+GET {{TodoAPI_20_02_2024_HostAddress}}/api/TodoItems/1
+Accept: application/json
