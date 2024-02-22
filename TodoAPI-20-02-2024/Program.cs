@@ -4,6 +4,12 @@ using TodoAPI_20_02_2024.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//cors ekledik
+builder.Services.AddCors(s =>s.AddDefaultPolicy(
+    p=>p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin() ));
+
+
+
 builder.Services.AddDbContext<TodoContext>(builder => builder.UseInMemoryDatabase("TodoList"));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,7 +37,12 @@ app.UseDefaultFiles();
 app.UseStaticFiles();
 
 
+//cors
+app.UseCors();
+
 app.UseAuthorization();
+
+
 
 app.MapControllers();
 
